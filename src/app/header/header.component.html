@@ -3,9 +3,9 @@
         <div class="col-lg-4"></div>
         <div class="col-lg-4"></div>
         <div class="col-lg-1"></div>
-        <div class="col-sm-1" style="padding-top:1%;font-size: large;">
+        <a class="col-sm-1" style="padding-top:1%;font-size: large;" data-toggle="modal" data-target="#exampleModal">
             Login
-        </div>
+        </a>
         <div class="col-sm-1">
             <span class="glyphicon glyphicon-shopping-cart"></span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -16,13 +16,39 @@
             &#9825;
         </div>
     </div>
-    <h1>myHandmadeJewelry.com</h1>
+    <h1 class="display-4">myHandmadeJewelry.com</h1>
     
     <div class="row">
         <div class="col-sm-3"></div>
-        <div class="col-sm-2"><a class="text-my-link" href="home">HOME</a></div>
-        <div class="col-sm-2"><a class="text-my-link" href="catalog">CATALOG</a></div>
-        <div class="col-sm-2"><a class="text-my-link" href="contact">CONTACT</a></div>
-        <div class="col-sm-2"></div>
+        <div class="col-sm-2 display-4"><a class="text-my-link" href="home">HOME</a></div>
+        <div class="col-sm-2 display-4"><a class="text-my-link" href="catalog">CATALOG</a></div>
+        <div class="col-sm-2 display-4"><a class="text-my-link" href="contact">CONTACT</a></div>
+        <div class="col-sm-2 display-4"></div>
     </div>
 </div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #login = "ngForm" style="padding-left:10%;" (ngSubmit) = "loginButtonClicked(login.value);login.reset();">
+            <input type="text" class="form-control" style="width:60%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Username" name="username" ngModel>
+            <br/>
+            <input type="password" class="form-control" style="width:60%;font-family:candara;font-size:large;border-color:lightgray"  class="form-control" placeholder="Password" name="password" ngModel>
+            <br/>
+          <button type="submit" class="btn btn-primary" style="font-family:candara;border-style:none" value="submit">Login</button>
+       </form>
+        </div>
+        <div class="modal-footer">
+          Don't have an account? <a href="signup">Sign up!</a>
+        </div>
+      </div>
+    </div>
+  </div>

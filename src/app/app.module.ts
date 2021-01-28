@@ -8,6 +8,18 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { ContactComponent } from './contact/contact.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
+import { EmailService } from './email.service';
+import { LoginService } from './login.service';
+import { OrderService } from './order.service';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { FavouritesComponent } from './favourites/favourites.component';
+import { OneProductComponent } from './one-product/one-product.component';
+import { NecklacesComponent } from './necklaces/necklaces.component';
+import { BraceletsComponent } from './bracelets/bracelets.component';
+import { RingsComponent } from './rings/rings.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +28,22 @@ import { ContactComponent } from './contact/contact.component';
     FooterComponent,
     HomeComponent,
     CatalogComponent,
-    ContactComponent
+    ContactComponent,
+    SignupComponent,
+    CheckoutComponent,
+    FavouritesComponent,
+    OneProductComponent,
+    NecklacesComponent,
+    BraceletsComponent,
+    RingsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [EmailService, LoginService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

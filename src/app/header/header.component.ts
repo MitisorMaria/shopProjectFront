@@ -12,4 +12,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  loginButtonClicked (data : any) {
+    //code that calls ther login service
+  }
+
 }

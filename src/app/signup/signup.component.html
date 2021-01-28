@@ -1,0 +1,32 @@
+<div class="div-my-background text-my-default text-center">
+    <div class="text-my-container">
+        <h5 class="text-left display-4" style="padding-left:26%;">
+            Sign up
+        </h5>
+        <br/>
+        <div [ngSwitch]="signedUpSuccessfully" style="padding-left:20%;padding-right:20%">
+            <!-- the same view can be shown in more than one case -->
+            <ngb-alert type="success" (closed)="closeAlert()" *ngSwitchCase="true" role="alert">You signed up successfully!</ngb-alert>
+            
+            <ngb-alert type="danger" (closed)="closeAlert()" *ngSwitchCase="false" role="alert">There was an error signing you up. Please enter your data carefully.</ngb-alert>
+            <!--default case when there are no matches -->
+            <div *ngSwitchDefault></div>
+          </div>
+           <form #signup = "ngForm" style="padding-left:26%;" (ngSubmit) = "signupButtonClicked(signup.value);signup.reset();">
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Username..." name="username" ngModel>
+               <br/>
+               <input type="tel" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Phone number..." name="phone" ngModel>
+               <br/>
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Address..." name="address" ngModel>
+               <br/>
+               <input type="email" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="E-mail address..." name="email" ngModel>
+               <br/>
+               <input type="password" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Choose a password" name="password" ngModel>
+               <br/>
+               <div class="buttonHolder">
+                    <button type="submit" class="btn btn-primary" style="font-family:candara;border-style:none" value="submit">Sign up</button>
+            </div>
+             
+          </form>
+    </div>
+</div>
