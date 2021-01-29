@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { SignupComponent } from './signup/signup.component';
 import { EmailService } from './email.service';
 import { LoginService } from './login.service';
 import { OrderService } from './order.service';
+import { ProductService } from './product.service';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { OneProductComponent } from './one-product/one-product.component';
@@ -41,9 +43,10 @@ import { RingsComponent } from './rings/rings.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [EmailService, LoginService, OrderService],
+  providers: [EmailService, LoginService, OrderService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

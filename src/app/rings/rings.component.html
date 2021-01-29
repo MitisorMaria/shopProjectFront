@@ -1,3 +1,21 @@
 <div class="div-my-background text-my-default text-center">
-<p>rings works!</p>
+
+    <h5 class="text-center display-4" style="padding-bottom:1%;">
+        Rings
+    </h5>
+    <div class="container" id="gallery">
+        <div class="row">
+        <div *ngFor="let ring of ringList;" class="col-12 col-sm-6 col-lg-3">
+          <img class="w-100" src={{ring.picPath}} style="height:300px; width:100%" data-target="#carouselExample" data-slide-to="0">
+          <figcaption>
+            {{ring.name}}
+            <br/>
+            Price: $ {{ring.price}}
+            <br/>
+            <button type="button" class="btn btn-secondary">Buy</button>
+            <hr>
+          </figcaption>
+        </div>
+    </div>
+      </div>
 </div>

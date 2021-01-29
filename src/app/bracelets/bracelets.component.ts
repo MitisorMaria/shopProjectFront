@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-bracelets',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BraceletsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService : ProductService) { }
+
+  public braceletList : any;
 
   ngOnInit(): void {
+    this.productService.getAllBracelets().subscribe(
+      val => {
+        this.braceletList = val;
+      },
+      response => {
+        alert("Error from bracelets!");
+      },
+      () => {
+      }
+    );
   }
 
 }

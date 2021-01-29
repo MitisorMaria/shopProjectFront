@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-necklaces',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NecklacesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService : ProductService) { }
+
+  public necklaceList : any;
 
   ngOnInit(): void {
+    this.productService.getAllNecklaces().subscribe(
+      val => {
+        this.necklaceList = val;
+      },
+      response => {
+        alert("Error from necklaces!");
+      },
+      () => {
+      }
+    );
   }
 
 }

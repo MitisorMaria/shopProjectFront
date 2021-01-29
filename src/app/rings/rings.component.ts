@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-rings',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService : ProductService) { }
+
+  public ringList : any;
 
   ngOnInit(): void {
+    this.productService.getAllRings().subscribe(
+      val => {
+        this.ringList = val;
+      },
+      response => {
+        alert("Error from rings!");
+      },
+      () => {
+      }
+    );
   }
 
 }
