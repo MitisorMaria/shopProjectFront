@@ -22,6 +22,7 @@ import { OneProductComponent } from './one-product/one-product.component';
 import { NecklacesComponent } from './necklaces/necklaces.component';
 import { BraceletsComponent } from './bracelets/bracelets.component';
 import { RingsComponent } from './rings/rings.component';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { RingsComponent } from './rings/rings.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [EmailService, LoginService, OrderService, ProductService],
+  providers: [EmailService, LoginService, OrderService, ProductService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,9 +13,11 @@
             <div *ngSwitchDefault></div>
           </div>
            <form #signup = "ngForm" style="padding-left:26%;" (ngSubmit) = "signupButtonClicked(signup.value);signup.reset();">
-               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Username..." name="username" ngModel>
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Name..." name="name" ngModel>
                <br/>
-               <input type="tel" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Phone number..." name="phone" ngModel>
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Surname..." name="surname" ngModel>
+               <br/>
+               <input type="tel" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Phone number..." name="telephoneNo" ngModel>
                <br/>
                <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Address..." name="address" ngModel>
                <br/>

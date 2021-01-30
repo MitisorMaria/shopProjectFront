@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService : UserService) { }
 
   public signedUpSuccessfully : any;
 
@@ -16,7 +17,17 @@ export class SignupComponent implements OnInit {
 
   signupButtonClicked (data : any) {
     //code that calls the signup service
-    this.signedUpSuccessfully = true;
+    this.userService.createUser(data).subscribe (
+      val => {
+        this.signedUpSuccessfully = true;
+      },
+      response => {
+        alert("Error creating user!");
+        this.signedUpSuccessfully = false;
+      },
+      () => {
+      }
+    );
   }
 
   closeAlert() {

@@ -4,13 +4,12 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class UserService {
 
   constructor(private http : HttpClient) { }
 
-  tryLogin(data : any) {
-    let apiurl = "http://localhost:8080/login?email=" + data.email + "&password=" + data.password;
-    return this.http.get(apiurl);
+  createUser(data : any) {
+    let apiurl = "http://localhost:8080/users";
+    return this.http.post(apiurl, data);
   }
-
 }
