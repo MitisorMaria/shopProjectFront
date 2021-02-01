@@ -1,0 +1,34 @@
+<div class="div-my-background text-my-default text-center">
+    <div class="text-my-container">
+        <h5 class="text-left display-4" style="padding-left:26%;">
+            My account info
+        </h5>
+        <br/>
+        <div [ngSwitch]="updatedSuccessfully" style="padding-left:20%;padding-right:20%">
+            <!-- the same view can be shown in more than one case -->
+            <ngb-alert type="success" (closed)="closeAlert()" *ngSwitchCase="true" role="alert">Account successfully updated!!</ngb-alert>
+            
+            <ngb-alert type="danger" (closed)="closeAlert()" *ngSwitchCase="false" role="alert">Error!</ngb-alert>
+            <!--default case when there are no matches -->
+            <div *ngSwitchDefault></div>
+          </div>
+           <form #info = "ngForm" style="padding-left:26%;" (ngSubmit) = "updateButtonClicked(info.value);info.reset();">
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Name..." name="name" ngModel>
+               <br/>
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Surname..." name="surname" ngModel>
+               <br/>
+               <input type="tel" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Phone number..." name="telephoneNo" ngModel>
+               <br/>
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Address..." name="address" ngModel>
+               <br/>
+               <input type="email" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="E-mail address..." name="email" ngModel>
+               <br/>
+               <input type="password" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Choose a password" name="password" ngModel>
+               <br/>
+               <div class="buttonHolder">
+                    <button type="submit" class="btn btn-primary" style="font-family:candara;border-style:none" value="submit">Update account info</button>
+            </div>
+             
+          </form>
+    </div>
+</div>

@@ -12,4 +12,14 @@ export class UserService {
     let apiurl = "http://localhost:8080/users";
     return this.http.post(apiurl, data);
   }
+
+  updateUser(data : any) {
+    let apiurl = "http://localhost:8080/users";
+    return this.http.put(apiurl, data);
+  }
+
+  getUserById(id: number) {
+    let apiurl = "http://localhost:8080/users?id=" + id;
+    return this.http.get(apiurl);
+  }
 }

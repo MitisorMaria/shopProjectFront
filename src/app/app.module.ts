@@ -23,6 +23,8 @@ import { NecklacesComponent } from './necklaces/necklaces.component';
 import { BraceletsComponent } from './bracelets/bracelets.component';
 import { RingsComponent } from './rings/rings.component';
 import { UserService } from './user.service';
+import { CartComponent } from './cart/cart.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { UserService } from './user.service';
     OneProductComponent,
     NecklacesComponent,
     BraceletsComponent,
-    RingsComponent
+    RingsComponent,
+    CartComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

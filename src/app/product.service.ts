@@ -22,4 +22,9 @@ export class ProductService {
     let apiurl = "http://localhost:8080/RING";
     return this.http.get(apiurl);
   }
+
+  getProductsByTypeAndIds(type: string, idString: string) {
+    let apiurl = "http://localhost:8080/products?type=" + type + "&idString=" + idString;
+    return this.http.get(apiurl);
+  }
 }

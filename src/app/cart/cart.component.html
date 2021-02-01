@@ -1,0 +1,33 @@
+<div class="div-my-background text-my-default text-center">
+    <div class="text-my-container">
+        <h5 class="text-center display-4" style="padding-bottom:1%;">
+            My cart
+        </h5>
+        <div class="container" id="gallery">
+            
+            <div *ngFor="let product of productList;" >
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-1">
+                        <img class="w-100" src={{product.picPath}} style="width:10px;" data-target="#carouselExample" data-slide-to="0">
+                    </div>
+                    <div class="col-sm-2">
+                        {{product.name}}
+                        <br/>
+                        Price: $ {{product.price}}
+                        <br/>
+                    </div>
+                    <div class="col-sm-4">
+                    
+                    <button type="button" class="btn btn-primary" (click)="removeFromCart(product);">Remove from cart</button>
+                    </div> 
+            </div>
+            <div class="row"><br/></div>
+            </div>
+            <div>Total: ${{total}}</div>
+            <div>
+                <a href="checkout"><button type="button" class="btn btn-primary" (click)="checkout();">Proceed to checkout</button> </a>
+            </div>
+          </div>
+        </div>
+    </div>

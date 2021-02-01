@@ -1,1 +1,30 @@
-<p>favourites works!</p>
+<div class="div-my-background text-my-default text-center">
+<div class="text-my-container">
+    <h5 class="text-center display-4" style="padding-bottom:1%;">
+        Favourites
+    </h5>
+    <div class="container" id="gallery">
+        
+        <div *ngFor="let product of productList;" >
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                    <img class="w-100" src={{product.picPath}} style="width:10px;" data-target="#carouselExample" data-slide-to="0">
+                </div>
+                <div class="col-sm-2">
+                    {{product.name}}
+                    <br/>
+                    Price: $ {{product.price}}
+                    <br/>
+                </div>
+                <div class="col-sm-4">
+                <button type="button" class="btn btn-secondary" (click)="addToCart(product);"><i class="fa fa-shopping-cart"></i></button>
+                <button type="button" class="btn btn-secondary" (click)="removeFromFavourites(product);">Remove from favourites</button>
+                </div> 
+        </div>
+        <div class="row"><br/></div>
+        </div>
+    
+      </div>
+    </div>
+</div>

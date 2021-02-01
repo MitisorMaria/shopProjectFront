@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 
 interface User {
@@ -18,10 +19,11 @@ interface User {
 })
 export class HeaderComponent implements OnInit {  
 
-  constructor(private loginService : LoginService) { }
+  constructor(private loginService : LoginService, private router: Router) { }
 
   public loggedIn : any;
   public valueToDisplay : any;
+  public userID: any;
 
   ngOnInit(): void {
     if (localStorage.getItem("user") != null) {
@@ -36,7 +38,9 @@ export class HeaderComponent implements OnInit {
   logout() {
     localStorage.removeItem("user");
     localStorage.removeItem("loggedIn");
-    location.reload();
+    this.loggedIn = false;
+
+    location.reload();    
   }
 
   loginButtonClicked (data : any) {
@@ -44,7 +48,8 @@ export class HeaderComponent implements OnInit {
       val => {
         this.loggedIn = true;
         localStorage.setItem("loggedIn", "true");
-        localStorage.setItem("user", (<User>val).name + " " + (<User>val).surname);
+        localStorage.setItem("userId", (<User>val).id.toString());
+        this.userID = (<User>val).id;
         location.reload();
       },
       response => {

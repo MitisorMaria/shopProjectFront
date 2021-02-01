@@ -20,11 +20,9 @@
                 <br/>
               <button type="submit" class="btn btn-primary" style="font-family:candara;border-style:none" value="submit">Send</button>
               <div [ngSwitch]="emailSuccessfullySent" style="padding-left:30%;padding-right:20%">
-                <!-- the same view can be shown in more than one case -->
                 <ngb-alert type="success" (closed)="closeAlert()" *ngSwitchCase="true" role="alert">Message sent successfully!</ngb-alert>
                 
                 <ngb-alert type="danger" (closed)="closeAlert()" *ngSwitchCase="false" role="alert">There was an error sending your message.</ngb-alert>
-                <!--default case when there are no matches -->
                 <div *ngSwitchDefault></div>
               </div>
               
