@@ -15,8 +15,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#">
             <a *ngIf="!loggedIn" style="font-size: large;" data-toggle="modal" data-target="#exampleModal">
-              <h6> {{valueToDisplay}}</h6>
+              <h6> Login</h6>
             </a>
+            
 
             <a *ngIf="loggedIn" style="font-size: large;">
               <h6><a [id]="userID" [routerLink]="['/account', userID]"> {{valueToDisplay}}</a></h6>
@@ -26,6 +27,11 @@
         <li class="nav-item">
           <h6 *ngIf = "loggedIn">
             <button class="btn btn-sm btn-primary" style="font-family:candara;border-style:none;" (click)="logout();">Log out</button>
+          </h6>
+        </li>
+        <li class="nav-item">
+          <h6 *ngIf = 'userID == 0'>
+            <button class="btn btn-sm btn-primary" style="font-family:candara;border-style:none;"><a href="one-product" style="color:white">Administrate items</a></button>
           </h6>
         </li>
       </ul>

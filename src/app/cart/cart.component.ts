@@ -87,6 +87,11 @@ export class CartComponent implements OnInit {
   }
 
   checkout() {
+    let loggedIn = localStorage.getItem("user") != null;
+    if (!loggedIn) {
+      //please log in
+    }
+
     
     alert("checkout");
   }

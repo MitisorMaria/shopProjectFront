@@ -12,18 +12,19 @@
             <!--default case when there are no matches -->
             <div *ngSwitchDefault></div>
           </div>
-           <form #info = "ngForm" style="padding-left:26%;" (ngSubmit) = "updateButtonClicked(info.value);info.reset();">
-               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Name..." name="name" ngModel>
+           <form #info = "ngForm" style="margin-left: 26%;" (ngSubmit) = "updateButtonClicked(info.value);info.reset();">
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{user.name}}" name="name" ngModel>
                <br/>
-               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Surname..." name="surname" ngModel>
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{user.surname}}" name="surname" ngModel>
                <br/>
-               <input type="tel" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Phone number..." name="telephoneNo" ngModel>
+               <input type="tel" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{user.telephoneNo}}" name="telephoneNo" ngModel>
                <br/>
-               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Address..." name="address" ngModel>
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{user.address}}" name="address" ngModel>
                <br/>
-               <input type="email" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="E-mail address..." name="email" ngModel>
+               <input type="email" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{user.email}}" name="email" ngModel>
                <br/>
-               <input type="password" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Choose a password" name="password" ngModel>
+               
+               <input type="password" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Type new password here..." name="password" ngModel>
                <br/>
                <div class="buttonHolder">
                     <button type="submit" class="btn btn-primary" style="font-family:candara;border-style:none" value="submit">Update account info</button>

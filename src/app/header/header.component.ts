@@ -28,18 +28,23 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     if (localStorage.getItem("user") != null) {
       this.valueToDisplay = localStorage.getItem("user");
-      this.loggedIn = true;
+      this.loggedIn = true;      
     } else {
       this.valueToDisplay = "Login";
     }
+
+    if(localStorage.getItem("userId") != null) {
+      this.userID = localStorage.getItem("userId");
+    }
+
     
   }
 
   logout() {
-    localStorage.removeItem("user");
-    localStorage.removeItem("loggedIn");
+    localStorage.clear();
     this.loggedIn = false;
 
+    this.userID = undefined;
     location.reload();    
   }
 
@@ -48,8 +53,9 @@ export class HeaderComponent implements OnInit {
       val => {
         this.loggedIn = true;
         localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("user", (<User>val).name + " " + (<User>val).surname);
         localStorage.setItem("userId", (<User>val).id.toString());
-        this.userID = (<User>val).id;
+        
         location.reload();
       },
       response => {

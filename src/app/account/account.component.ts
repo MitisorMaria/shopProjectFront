@@ -25,13 +25,14 @@ export class AccountComponent implements OnInit {
   public updatedSuccessfully : any;
   public user: any;
   
+  
 
   ngOnInit(): void {
     //const routeParams = this.route.snapshot.paramMap;
     //const userIDFromRoute = String(routeParams.get('id'));
-    const userID = parseInt(<string>localStorage.getItem("userID"), 10);
+    const userID = parseInt(<string>localStorage.getItem("userId"), 10);
     this.userService.getUserById(userID).subscribe (
-      val => {
+      val => {        
         this.user = val;
       },
       response => {
@@ -45,10 +46,19 @@ export class AccountComponent implements OnInit {
   }
 
   updateButtonClicked (data : any) {
-    //code that calls the signup service
-    this.userService.updateUser(data).subscribe (
+    let user = <User>data;
+    if (user.name == null || user.name === "") user.name = this.user.name;
+    if (user.surname == null || user.surname === "") user.surname = this.user.surname;
+    if (user.email == null || user.email === "") user.email = this.user.email;
+    if (user.address == null || user.address === "") user.address = this.user.address;
+    if (user.telephoneNo == null || user.telephoneNo === "") user.telephoneNo = this.user.telephoneNo;
+    if (user.id == null) user.id = this.user.id;
+    if (user.password == null || user.password === "") user.password = this.user.password;
+
+    this.userService.updateUser(user).subscribe (
       val => {
         this.updatedSuccessfully = true;
+        this.user=user;
       },
       response => {
         alert("Error updating user!");

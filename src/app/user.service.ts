@@ -19,7 +19,7 @@ export class UserService {
   }
 
   getUserById(id: number) {
-    let apiurl = "http://localhost:8080/users?id=" + id;
+    let apiurl = "http://localhost:8080/userId?id=" + id;
     return this.http.get(apiurl);
   }
 }

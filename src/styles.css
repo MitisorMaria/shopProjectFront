@@ -54,3 +54,8 @@ div.copyright {
     color:gray;
     padding-right:3%;
 }
+
+::placeholder {
+    color: black;
+    opacity: 1;
+}
