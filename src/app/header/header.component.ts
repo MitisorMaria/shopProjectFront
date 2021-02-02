@@ -53,12 +53,15 @@ export class HeaderComponent implements OnInit {
   loginButtonClicked (data : any) {
     this.loginService.tryLogin(data).subscribe(
       val => {
-        this.loggedIn = true;
-        localStorage.setItem("loggedIn", "true");
-        localStorage.setItem("user", (<User>val).name + " " + (<User>val).surname);
-        localStorage.setItem("userId", (<User>val).id.toString());
-        
-        location.reload();
+        if (val!=null) {
+          this.loggedIn = true;
+          localStorage.setItem("loggedIn", "true");
+          localStorage.setItem("user", (<User>val).name + " " + (<User>val).surname);
+          localStorage.setItem("userId", (<User>val).id.toString());
+          location.reload();
+        } else {
+          this.loggedIn = false;
+        }              
       },
       response => {
         this.loggedIn = false;

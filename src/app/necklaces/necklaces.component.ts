@@ -58,4 +58,12 @@ export class NecklacesComponent implements OnInit {
     this.addedCart = false;
   }
 
+  closeFav() {
+    this.addedFav = false;
+  }
+
+  closeCart() {
+    this.addedCart = false;
+  }
+
 }

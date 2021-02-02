@@ -16,8 +16,7 @@
           <a class="nav-link" href="#">
             <a *ngIf="!loggedIn" style="font-size: large;" data-toggle="modal" data-target="#exampleModal">
               <h6> Login</h6>
-            </a>
-            
+            </a>          
 
             <a *ngIf="loggedIn" style="font-size: large;">
               <h6><a [id]="userID" [routerLink]="['/account', userID]"> {{valueToDisplay}}</a></h6>
@@ -51,7 +50,7 @@
 </div>
 
 
-<div *ngIf="!loggedIn" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -68,7 +67,7 @@
             <br/>
           <button type="submit" class="btn btn-primary" style="font-family:candara;border-style:none" value="submit">Login</button>
        </form>
-       <div *ngIf="loggedIn==false" style="padding-left:20%;padding-right:20%">        
+       <div *ngIf="loggedIn===false" style="padding-left:20%;padding-right:20%">        
         <ngb-alert type="danger" role="alert">Wrong e-mail and/or password!</ngb-alert>
       </div>
         </div>

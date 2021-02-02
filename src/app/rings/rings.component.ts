@@ -56,5 +56,12 @@ export class RingsComponent implements OnInit {
     this.addedFav = false;
     this.addedCart = false;
   }
+  closeFav() {
+    this.addedFav = false;
+  }
+
+  closeCart() {
+    this.addedCart = false;
+  }
 
 }
