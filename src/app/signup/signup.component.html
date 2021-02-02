@@ -4,6 +4,36 @@
             Sign up
         </h5>
         <br/>
+        <!--<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+            <div *ngIf="name.errors.required">
+                Name is required.
+            </div>
+        </div>
+        <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class="alert alert-danger">
+            <div *ngIf="surname.errors.required">
+                Surame is required.
+            </div>
+        </div>
+        <div *ngIf="telephoneNo.invalid && (telephoneNo.dirty || telephoneNo.touched)" class="alert alert-danger">
+            <div *ngIf="telephoneNo.errors.required">
+                Telephone number is required.
+            </div>
+        </div>
+        <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+            <div *ngIf="name.errors.required">
+                Address is required.
+            </div>
+        </div>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+            <div *ngIf="email.errors.required">
+                E-mail address is required.
+            </div>
+        </div>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            <div *ngIf="password.errors.required">
+                Password is required.
+            </div>
+        </div>!-->
         <div [ngSwitch]="signedUpSuccessfully" style="padding-left:20%;padding-right:20%">
             <!-- the same view can be shown in more than one case -->
             <ngb-alert type="success" (closed)="closeAlert()" *ngSwitchCase="true" role="alert">You signed up successfully!</ngb-alert>
@@ -12,23 +42,25 @@
             <!--default case when there are no matches -->
             <div *ngSwitchDefault></div>
           </div>
-           <form #signup = "ngForm" style="padding-left:26%;" (ngSubmit) = "signupButtonClicked(signup.value);signup.reset();">
-               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Name..." name="name" ngModel required>
+           <form #signup = "ngForm" style="padding-left:26%;" (ngSubmit) = "signupButtonClicked(signup.value);signup.reset();" ngNativeValidate>
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" required placeholder="Name..." id="name" name="name" ngModel #name="ngModel">
                <br/>
-               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Surname..." name="surname" ngModel>
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" required placeholder="Surname..." id="surname" name="surname" ngModel #surname="ngModel">
                <br/>
-               <input type="tel" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Phone number..." name="telephoneNo" ngModel>
+               <input type="tel" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" required placeholder="Phone number..." id="telephoneNo" name="telephoneNo" ngModel #telephoneNo="ngModel">
                <br/>
-               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Address..." name="address" ngModel>
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" required placeholder="Address..." id="address" name="address" ngModel #address="ngModel">
                <br/>
-               <input type="email" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="E-mail address..." name="email" ngModel>
+               <input type="email" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" required placeholder="E-mail address..." id="email" name="email" ngModel #email="ngModel">
                <br/>
-               <input type="password" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Choose a password" name="password" ngModel>
+               <input type="password" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" required placeholder="Choose a password" id="password" name="password" ngModel #password="ngModel">
                <br/>
+               
                <div class="buttonHolder">
                     <button type="submit" class="btn btn-primary" style="font-family:candara;border-style:none" value="submit">Sign up</button>
             </div>
              
           </form>
+          
     </div>
 </div>

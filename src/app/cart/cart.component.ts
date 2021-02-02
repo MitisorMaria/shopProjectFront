@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login.service';
 import { ProductService } from '../product.service';
 interface Product {
   id: number,
@@ -8,6 +9,17 @@ interface Product {
   picPath: string
 }
 
+
+interface User {
+  name: string;
+  surname: string;
+  email: string;
+  address: string;
+  telephoneNo: string;
+  password: string;
+  id: number;
+}
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -15,10 +27,11 @@ interface Product {
 })
 export class CartComponent implements OnInit {
 
-  constructor(private productService : ProductService) { this.productList = new Array<Product>(); }
+  constructor(private loginService : LoginService, private productService : ProductService) { this.productList = new Array<Product>(); }
 
   public productList: Array<Product>;
   public total: any;
+  public loggedIn: any;
   
   getArrayOfProductsFromStoredString(s: string, type: string) {
       this.productService.getProductsByTypeAndIds(type, s).subscribe(
@@ -55,6 +68,11 @@ export class CartComponent implements OnInit {
       storedStr = localStorage.getItem("cartRings");
       this.getArrayOfProductsFromStoredString(storedStr, "RING");
     }
+
+    if (localStorage.getItem("user") != null) {
+      this.loggedIn = true;
+    } else this.loggedIn = false;
+
   }
 
 
@@ -87,12 +105,24 @@ export class CartComponent implements OnInit {
   }
 
   checkout() {
-    let loggedIn = localStorage.getItem("user") != null;
-    if (!loggedIn) {
-      //please log in
-    }
+    localStorage.setItem("total", this.total.toString());
+  }
 
-    
-    alert("checkout");
+  loginButtonClicked (data : any) {
+    this.loginService.tryLogin(data).subscribe(
+      val => {
+        this.loggedIn = true;
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("user", (<User>val).name + " " + (<User>val).surname);
+        localStorage.setItem("userId", (<User>val).id.toString());
+        
+        location.reload();
+      },
+      response => {
+        this.loggedIn = false;
+      },
+      () => {
+      }
+    );
   }
 }

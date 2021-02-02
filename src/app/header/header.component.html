@@ -26,12 +26,12 @@
         </li>
         <li class="nav-item">
           <h6 *ngIf = "loggedIn">
-            <button class="btn btn-sm btn-primary" style="font-family:candara;border-style:none;" (click)="logout();">Log out</button>
+            <a href="home" style="color:white"><button class="btn btn-sm btn-primary" style="font-family:candara;border-style:none;" (click)="logout();">Log out</button></a>
           </h6>
         </li>
         <li class="nav-item">
           <h6 *ngIf = 'userID == 0'>
-            <button class="btn btn-sm btn-primary" style="font-family:candara;border-style:none;"><a href="one-product" style="color:white">Administrate items</a></button>
+            <a href="admin" style="color:white"><button class="btn btn-sm btn-primary" style="font-family:candara;border-style:none;">Administrate items</button></a>
           </h6>
         </li>
       </ul>

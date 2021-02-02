@@ -31,5 +31,24 @@
             </div>
              
           </form>
+          <br>
+          <h5 class="text-left display-4" style="padding-left:26%;">
+            My orders
+            </h5>
+          <table style="width:60%; margin-left:26%; border: 1px solid white;">
+            <tr>
+              <th>Order ID</th>
+              <th>Order date & time</th>
+              <th>Total</th>
+              <th>Order status</th>
+            </tr>
+            <tr *ngFor = "let order of orders;">
+              <td>{{order.id}}</td>
+              <td>{{order.dateTime}}</td>
+              <td>{{order.total}}</td>
+              <td>{{order.status}}</td>
+            </tr>
+          </table>
     </div>
+    
 </div>

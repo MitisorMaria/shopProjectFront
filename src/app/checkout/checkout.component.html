@@ -1,1 +1,27 @@
-<p>checkout works!</p>
+<div class="div-my-background text-my-default text-left">
+    <div class="text-my-container" style="padding-left:30%">
+        <div class="display-4">Total: ${{total}}</div>
+        <hr>
+        <h2>Payment methods: </h2>
+        <label for="pay">Cash on delivery: </label><br>
+        <button class="btn-primary" (click)="placeOrder()">Place order with cash-on-delivery payment</button>
+        <hr>
+        <div *ngIf="orderAddedSuccessfully">
+            <ngb-alert type="success" (closed)="closeAlert()" role="alert" style="width:50%">
+                Your order was placed.
+            </ngb-alert>
+        </div>
+        <div *ngIf="orderAddedSuccessfully === false">
+            <ngb-alert type="danger" (closed)="closeAlert()" role="alert" style="width:50%">
+                Error placing order!
+            </ngb-alert>
+        </div>
+        <p>Pay online with paypal:</p>
+        <div id="myPaypalButtons" style="width:50%">
+
+        </div>
+    </div>
+</div>
+
+
+

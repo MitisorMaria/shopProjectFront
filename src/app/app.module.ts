@@ -18,7 +18,7 @@ import { OrderService } from './order.service';
 import { ProductService } from './product.service';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FavouritesComponent } from './favourites/favourites.component';
-import { OneProductComponent } from './one-product/one-product.component';
+import { AdminComponent } from './admin/admin.component';
 import { NecklacesComponent } from './necklaces/necklaces.component';
 import { BraceletsComponent } from './bracelets/bracelets.component';
 import { RingsComponent } from './rings/rings.component';
@@ -37,7 +37,7 @@ import { AccountComponent } from './account/account.component';
     SignupComponent,
     CheckoutComponent,
     FavouritesComponent,
-    OneProductComponent,
+    AdminComponent,
     NecklacesComponent,
     BraceletsComponent,
     RingsComponent,

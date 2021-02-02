@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { OrderService } from '../order.service';
 import { UserService } from '../user.service';
 
 interface User {
@@ -19,12 +20,12 @@ interface User {
 })
 export class AccountComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private userService : UserService) { 
+  constructor(private route: ActivatedRoute, private userService : UserService, private orderService: OrderService) { 
   }
 
   public updatedSuccessfully : any;
   public user: any;
-  
+  public orders: any;  
   
 
   ngOnInit(): void {
@@ -38,6 +39,17 @@ export class AccountComponent implements OnInit {
       response => {
         alert("Error getting user");
         this.updatedSuccessfully = false;
+      },
+      () => {
+      }
+    );
+
+    this.orderService.getOrdersByUserId(userID).subscribe (
+      val => {        
+        this.orders = val;
+      },
+      response => {
+        alert("Error getting orders");
       },
       () => {
       }

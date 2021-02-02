@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { EmailService } from '../email.service';
 
 @Component({
   selector: 'app-contact',
@@ -8,13 +9,21 @@ import {NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private emailService: EmailService) { }
 
   public emailSuccessfullySent : any;
 
   sendButtonClicked(data : any) {
-    alert(data);
-    this.emailSuccessfullySent = true;
+    this.emailService.sendEmail(data).subscribe(
+      val => {
+        this.emailSuccessfullySent = true;
+      },
+      response => {
+        this.emailSuccessfullySent = false;
+      },
+      () => {
+      }
+ )
   }
 
   ngOnInit(): void {
