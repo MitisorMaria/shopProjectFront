@@ -13,15 +13,15 @@
             <div *ngSwitchDefault></div>
           </div>
            <form #info = "ngForm" style="margin-left: 26%;" (ngSubmit) = "updateButtonClicked(info.value);info.reset();">
-               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{user.name}}" name="name" ngModel>
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{getUser().name}}" name="name" ngModel>
                <br/>
-               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{user.surname}}" name="surname" ngModel>
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{getUser().surname}}" name="surname" ngModel>
                <br/>
-               <input type="tel" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{user.telephoneNo}}" name="telephoneNo" ngModel>
+               <input type="tel" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{getUser().telephoneNo}}" name="telephoneNo" ngModel>
                <br/>
-               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{user.address}}" name="address" ngModel>
+               <input type="text" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{getUser().address}}" name="address" ngModel>
                <br/>
-               <input type="email" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{user.email}}" name="email" ngModel>
+               <input type="email" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="{{getUser().email}}" name="email" ngModel>
                <br/>
                
                <input type="password" class="form-control" style="width:50%;font-family:candara;font-size:large;border-color:lightgray" placeholder="Type new password here..." name="password" ngModel>
@@ -42,7 +42,7 @@
               <th>Total</th>
               <th>Order status</th>
             </tr>
-            <tr *ngFor = "let order of orders;">
+            <tr *ngFor = "let order of getOrders();">
               <td>{{order.id}}</td>
               <td>{{order.dateTime}}</td>
               <td>{{order.total}}</td>

@@ -19,7 +19,7 @@ interface User {
 })
 export class HeaderComponent implements OnInit {  
 
-  constructor(private loginService : LoginService, private router: Router) { }
+  constructor(private loginService : LoginService) { }
 
   public loggedIn : any;
   public valueToDisplay : any;

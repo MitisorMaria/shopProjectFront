@@ -20,17 +20,15 @@ interface User {
 })
 export class AccountComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private userService : UserService, private orderService: OrderService) { 
+  constructor(private userService : UserService, private orderService: OrderService) { 
   }
 
   public updatedSuccessfully : any;
-  public user: any;
-  public orders: any;  
+  private user: any;
+  private orders: any;  
   
 
   ngOnInit(): void {
-    //const routeParams = this.route.snapshot.paramMap;
-    //const userIDFromRoute = String(routeParams.get('id'));
     const userID = parseInt(<string>localStorage.getItem("userId"), 10);
     this.userService.getUserById(userID).subscribe (
       val => {        
@@ -83,6 +81,14 @@ export class AccountComponent implements OnInit {
 
   closeAlert() {
     this.updatedSuccessfully = undefined;
+   }
+
+   getUser() {
+     return this.user;
+   }
+
+   getOrders() {
+     return this.orders;
    }
 
 }
